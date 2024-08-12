@@ -1,0 +1,840 @@
+1) a. Illustration of Where Clause, AND, OR operations in MongoDB.
+ b. Execute the Commands of MongoDB and operations in MongoDB : Insert, Query, Update, Delete and Projection. (Note: use any collection)
+To insert this data into MongoDB, you can use the following commands in the MongoDB shell or a MongoDB client like MongoDB Compass:
+1.	Connect to MongoDB:
+>mongo
+2.	Create a database and a collection:
+>use school
+>db.createCollection("students");
+
+3.	Insert the data into the collection:
+
+>db.students.insertMany([
+  { "student_id": 1, "name": "Alice Johnson", "age": 20, "gender": "Female", "courses": ["Math", "Science"], "grade": "A", "address": { "street": "123 Maple St", "city": "Springfield", "state": "IL", "zip": "62701" } },
+  { "student_id": 2, "name": "Bob Smith", "age": 22, "gender": "Male", "courses": ["English", "History"], "grade": "B", "address": { "street": "456 Oak St", "city": "Springfield", "state": "IL", "zip": "62702" } },
+  { "student_id": 3, "name": "Charlie Brown", "age": 23, "gender": "Male", "courses": ["Math", "Art"], "grade": "C", "address": { "street": "789 Pine St", "city": "Springfield", "state": "IL", "zip": "62703" } },
+  { "student_id": 4, "name": "Diana Prince", "age": 21, "gender": "Female", "courses": ["Science", "History"], "grade": "B", "address": { "street": "321 Birch St", "city": "Springfield", "state": "IL", "zip": "62704" } },
+  { "student_id": 5, "name": "Eve Adams", "age": 20, "gender": "Female", "courses": ["Math", "Science"], "grade": "A", "address": { "street": "654 Elm St", "city": "Springfield", "state": "IL", "zip": "62705" } },
+  { "student_id": 6, "name": "Frank Wright", "age": 22, "gender": "Male", "courses": ["English", "Science"], "grade": "B", "address": { "street": "987 Cedar St", "city": "Springfield", "state": "IL", "zip": "62706" } },
+  { "student_id": 7, "name": "Grace Hall", "age": 23, "gender": "Female", "courses": ["History", "Art"], "grade": "C", "address": { "street": "147 Oak St", "city": "Springfield", "state": "IL", "zip": "62707" } },
+  { "student_id": 8, "name": "Henry Carter", "age": 21, "gender": "Male", "courses": ["Math", "History"], "grade": "B", "address": { "street": "258 Pine St", "city": "Springfield", "state": "IL", "zip": "62708" } },
+  { "student_id": 9, "name": "Isla Turner", "age": 20, "gender": "Female", "courses": ["Science", "English"], "grade": "A", "address": { "street": "369 Birch St", "city": "Springfield", "state": "IL", "zip": "62709" } },
+  { "student_id": 10, "name": "Jack White", "age": 22, "gender": "Male", "courses": ["Math", "Science"], "grade": "B", "address": { "street": "741 Maple St", "city": "Springfield", "state": "IL", "zip": "62710" } },
+  { "student_id": 11, "name": "Kara Green", "age": 23, "gender": "Female", "courses": ["English", "Art"], "grade": "C", "address": { "street": "852 Oak St", "city": "Springfield", "state": "IL", "zip": "62711" } },
+  { "student_id": 12, "name": "Liam Hill", "age": 21, "gender": "Male", "courses": ["History", "Science"], "grade": "B", "address": { "street": "963 Cedar St", "city": "Springfield", "state": "IL", "zip": "62712" } },
+  { "student_id": 13, "name": "Mia King", "age": 20, "gender": "Female", "courses": ["Math", "Art"], "grade": "A", "address": { "street": "123 Pine St", "city": "Springfield", "state": "IL", "zip": "62713" } },
+  { "student_id": 14, "name": "Noah Wright", "age": 22, "gender": "Male", "courses": ["Science", "English"], "grade": "B", "address": { "street": "456 Birch St", "city": "Springfield", "state": "IL", "zip": "62714" } },
+  { "student_id": 15, "name": "Olivia Brown", "age": 23, "gender": "Female", "courses": ["History", "Math"], "grade": "C", "address": { "street": "789 Oak St", "city": "Springfield", "state": "IL", "zip": "62715" } },
+  { "student_id": 16, "name": "Peter Johnson", "age": 21, "gender": "Male", "courses": ["Math", "Science"], "grade": "B", "address": { "street": "321 Cedar St", "city": "Springfield", "state": "IL", "zip": "62716" } },
+  { "student_id": 17, "name": "Quinn Adams", "age": 20, "gender": "Female", "courses": ["English", "History"], "grade": "A", "address": { "street": "654 Maple St", "city": "Springfield", "state": "IL", "zip": "62717" } },
+  { "student_id": 18, "name": "Ryan Clark", "age": 22, "gender": "Male", "courses": ["Science", "Art"], "grade": "B", "address": { "street": "987 Pine St", "city": "Springfield", "state": "IL", "zip": "62718" } },
+  { "student_id": 19, "name": "Sophie Evans", "age": 23, "gender": "Female", "courses": ["Math", "History"], "grade": "C", "address": { "street": "147 Birch St", "city": "Springfield", "state": "IL", "zip": "62719" } },
+  { "student_id": 20, "name": "Thomas Moore", "age": 21, "gender": "Male", "courses": ["Science", "English"], "grade": "B", "address": { "street": "258 Oak St", "city": "Springfield", "state": "IL", "zip": "62720" } },
+  { "student_id": 21, "name": "Uma Harris", "age": 20, "gender": "Female", "courses": ["Math", "Art"], "grade": "A", "address": { "street": "369 Cedar St", "city": "Springfield", "state": "IL", "zip": "62721" } },
+  { "student_id": 22, "name": "Victor Lewis", "age": 22, "gender": "Male", "courses": ["History", "Science"], "grade": "B", "address": { "street": "741 Maple St", "city": "Springfield", "state": "IL", "zip": "62722" } },
+  { "student_id": 23, "name": "Wendy Scott", "age": 23, "gender": "Female", "courses": ["English", "Math"], "grade": "C", "address": { "street": "852 Pine St", "city": "Springfield", "state": "IL", "zip": "62723" } },
+  { "student_id": 24, "name": "Xander Young", "age": 21, "gender": "Male", "courses": ["Science", "History"], "grade": "B", "address": { "street": "963 Birch St", "city": "Springfield", "state": "IL", "zip": "62724" } },
+  { "student_id": 25, "name": "Yara Bell", "age": 20, "gender": "Female", "courses": ["Math", "Science"], "grade": "A", "address": { "street": "123 Oak St", "city": "Springfield", "state": "IL", "zip": "62725" } });
+
+ 
+1)a. Illustration of Where Clause, AND,OR operations in MongoDB.
+i). Using the Where Clause
+The where clause in MongoDB is used to filter documents that match a specified condition.
+Example: Find students who are 20 years old.
+Query:
+>  db.students.find({ age: 20 })
+ Sample output: 
+
+ 
+
+
+
+ii). Using the AND Operation
+The AND operation can be achieved by specifying multiple conditions within the same query object. MongoDB treats all key-value pairs within a single query object as an implicit AND.
+Example: Find students who are 21 years old and have a grade of 'B'.
+Query:
+>  db.students.find({ age: 21, grade: 'B' })
+
+
+
+Sample output:
+ 
+iii). Using the OR Operation
+The OR operation is performed using the $or operator. This operator takes an array of query conditions and matches documents that satisfy at least one of them.
+Example: Find students who are either 21 years old or have a grade of 'A'.
+Query:
+>  db.students.find({
+age: 21,
+$or: [
+{ grade: 'A' },
+{ courses: 'Math' } ]
+})
+Sample output:
+ 
+b. Execute the Commands of MongoDB and operations in MongoDB: Insert, Query, Update, Delete and Projection.
+1. Insert
+Command to insert a single document:
+>  db.students.insertOne({
+  student_id: 51,
+  name: "Yasmin Brooks",
+  age: 24,
+  gender: "Female",
+  courses: ["Physics", "Chemistry"],
+  grade: "B",
+  address: {
+    street: "987 Willow St",
+    city: "Springfield",
+    state: "IL",
+    zip: "62751"
+  } } )
+Sample output:
+
+
+
+
+
+
+
+
+
+
+
+// to insert multiple documents:
+>  db.students.insertMany([
+  {
+    student_id: 52,
+    name: "Zoe Taylor",
+    age: 22,
+    gender: "Female",
+    courses: ["Math", "History"],
+    grade: "A",
+    address: {
+      street: "123 Palm St",
+      city: "Springfield",
+      state: "IL",
+      zip: "62752"
+    } },
+  {
+    student_id: 53,
+    name: "Liam Martinez",
+    age: 23,
+    gender: "Male",
+    courses: ["Biology", "Art"],
+    grade: "C",
+    address: {
+      street: "456 Fir St",
+      city: "Springfield",
+      state: "IL",
+      zip: "62753"
+    }}])
+output:
+ 
+(2.) Query for above data
+Find all documents:
+> db.students.find()
+Find students who are 22 years old:
+>  db.students.find({ age: 22 })
+Find a student by student id
+>  db.students.findOne({ student_id: 10 })
+3. Update
+Update a student's grade by student_id:
+db.students.updateOne(
+  { student_id: 10 },
+  { $set: { grade: "A" } }
+)
+Output:
+ 
+4. Delete
+Delete a student by student id:
+>  db.students.deleteOne({ student_id: 51 })
+output:
+ 
+5. Projection
+Find specific fields (name and age) of all students:
+db.students.find({}, { name: 1, age: 1, _id: 0 })
+Find students with specific fields and apply conditions:
+
+>  db.students.find(
+  { age: { $gte: 22 } },
+  { name: 1, age: 1, grade: 1, _id: 0 }
+)
+Output:
+ 
+2 a. Develop a MongoDB query to select certain fields and ignore some fields of the documents from any collection.
+Here’s how you can do it using the students collection:
+Example Query: Include and Exclude Fields
+Assume we want to include the name and age fields but exclude the _id and address fields from the documents.
+Command:
+>  db.students.find({}, 
+  { name: 1, age: 1 }     // Include name and age, exclude _id and address
+ )
+Example:Output:
+[
+  { "name": "John Doe", "age": 21 },
+  { "name": "Jane Smith", "age": 22 },
+  { "name": "Michael Johnson", "age": 23 },
+]
+Example 1: Include name, age, and grade, but exclude _id.
+db.students.find({},
+  { name: 1, age: 1, grade: 1, }
+)
+Example 2: Include only name and courses
+db.students.find(
+  {},
+  { name: 1, courses: 1}
+)
+b. Develop a MongoDB query to display the first 5 documents from the results obtained in a. [use of limit and find]
+To display the first 5 documents from the results obtained in the previous query, you can simply use the limit function in MongoDB. Here's how you can do it:
+Example Query: Using Limit to Display First 5 Documents
+>  db.students.find(
+  {  },
+  { name: 1, age: 1 }
+).limit(5)
+
+•	limit(5): This function limits the number of documents returned by the query to 5.
+
+
+
+
+
+
+
+3 a. Execute query selectors (comparison selectors, logical selectors) and list out the results on any collection
+In MongoDB, query selectors are used to filter documents based on various conditions. These include comparison selectors (like $gt, $lt, $eq, etc.) and logical selectors (like $and, $or, $not, etc.).
+Comparison Selectors
+1). $gt 
+(greater than): Find students who are older than 21.
+Query
+ >  db.students.find({ age: { $gt: 21 } })
+Example output:
+[{ "student_id": 10, "name": "Jack White", "age": 22, ... },
+  { "student_id": 12, "name": "Michael Brown", "age": 22, ... },
+]
+2. $lt (less than): Find students who are younger than 22.
+Query
+db.students.find({ age: { $lt: 22 } })
+Example Output:
+[{ "student_id": 4, "name": "Diana Prince", "age": 21, ... },
+  { "student_id": 8, "name": "Henry Carter", "age": 21, ... },
+]
+3. $eq (equal): Find students who are exactly 23 years old.
+Query
+db.students.find({ age: { $eq: 23 } })
+Example output:
+[{ "student_id": 11, "name": "Anna Davis", "age": 23, ... },
+  { "student_id": 31, "name": "Ella Martinez", "age": 23, ... },]
+4. $ne (not equal): Find students who are not 22 years old.
+Query
+db.students.find({ age: { $ne: 22 } })
+Example Output:
+[{ "student_id": 4, "name": "Diana Prince", "age": 21, ... },
+  { "student_id": 11, "name": "Anna Davis", "age": 23, ... },
+]
+5. $in: Find students who are either 21 or 23 years old.
+Query
+db.students.find({ age: { $in: [21, 23] } })
+Example Output:
+[
+  { "student_id": 4, "name": "Diana Prince", "age": 21, ... },
+  { "student_id": 11, "name": "Anna Davis", "age": 23, ... },
+  ...........
+]
+6. $nin: Find students who are neither 21 nor 23 years old.
+Query
+db.students.find({ age: { $nin: [21, 23] } })
+Example Output:
+[
+  { "student_id": 10, "name": "Jack White", "age": 22, ... },
+  { "student_id": 12, "name": "Michael Brown", "age": 22, ... },
+  ...
+]
+Logical Selectors
+1.  $and: Find students who are 22 years old and have a grade of 'B'. 
+Query
+db.students.find({ $and: [{ age: 22 }, { grade: 'B' }] })
+Example Output:
+[
+  { "student_id": 10, "name": "Jack White", "age": 22, "grade": "B", ... },
+  { "student_id": 12, "name": "Michael Brown", "age": 22, "grade": "B", ... },
+]
+2. $or: Find students who are either 21 years old or have a grade of 'A'.
+Query
+db.students.find({ $or: [{ age: 21 }, { grade: 'A' }] })
+Example Output:
+[
+  { "student_id": 4, "name": "Diana Prince", "age": 21, "grade": "B", ... },
+  { "student_id": 21, "name": "Uma Harris", "age": 21, "grade": "A", ... },
+]
+3. $not: Find students who do not have a grade of 'A'.
+Query
+db.students.find({ grade: { $not: { $eq: 'A' } } })
+Example Output:
+[
+  { "student_id": 10, "name": "Jack White", "age": 22, "grade": "B", ... },
+  { "student_id": 12, "name": "Michael Brown", "age": 22, "grade": "B", ... },
+  ...
+]
+4. $nor: Find students who are neither 21 years old nor have a grade of 'B'.
+Query
+db.students.find({ $nor: [{ age: 21 }, { grade: 'B' }] })
+Example Output:
+[
+  { "student_id": 11, "name": "Anna Davis", "age": 23, "grade": "C", ... },
+  { "student_id": 30, "name": "Daniel Thomas", "age": 22, "grade": "A", ... },
+  ...
+]
+b. Execute query selectors (Geospatial selectors, Bitwise selectors) and list out the results on any collection
+
+Geospatial Selectors
+Geospatial queries in MongoDB allow you to perform operations based on geographic location data stored in your documents. Assume some students have a location field with their coordinates stored in GeoJSON format.
+Sample Data with Location
+db.students.insertMany([
+  {  student_id: 51,
+    name: "Yasmin Brooks",
+    age: 24,
+    location: { type: "Point", coordinates: [ -73.97, 40.77 ] } // New York City coordinates
+  },
+  { student_id: 52,
+    name: "Zoe Taylor",
+    age: 22,
+    location: { type: "Point", coordinates: [ -118.25, 34.05 ] } // Los Angeles coordinates
+  },
+  {
+    student_id: 53,
+    name: "Liam Martinez",
+    age: 23,
+    location: { type: "Point", coordinates: [ -87.62, 41.88 ] } // Chicago coordinates
+  } ] )
+
+
+
+Geospatial Query Example: Find Students Near a Location
+Command
+db.students.find({
+  location: {
+    $near: {
+      $geometry: { type: "Point", coordinates: [ -73.97, 40.77 ] }, // New York City coordinates
+      $maxDistance: 10000 // 10 km
+    }  } } )
+Explanation:
+•	$near: Finds documents near the specified location.
+•	$geometry: Specifies the type of geometry and coordinates.
+•	$maxDistance: Limits the results to within a specified distance (in meters).
+
+•	 Example Output:
+[
+  { "student_id": 51, "name": "Yasmin Brooks", "age": 24, "location": { "type": "Point", "coordinates": [ -73.97, 40.77 ] } }
+]
+Bitwise Selectors
+Bitwise query operators allow you to query documents based on bitwise comparisons of integer values.
+Sample Data with Bitwise Fields
+db.students.insertMany([
+  {
+     student_id: 54,
+    name: "Eve Adams",
+    age: 20,
+    bitwiseFlag: 5 // Binary 101
+  },
+  {
+    student_id: 55,
+    name: "Sam Brown",
+    age: 25,
+    bitwiseFlag: 6 // Binary 110
+  }
+])
+Bitwise Query Example: Find Documents Where Bitwise AND with a Mask is Non-zero
+Command:
+db.students.find({
+  bitwiseFlag: { $bitsAllSet: 1 } // Find documents where the bitwise AND with 1 (binary 001) is non-zero
+})
+$bitsAllSet: Matches documents where all the specified bit positions are set to 1.
+Example Output:
+[
+  { "student_id": 54, "name": "Eve Adams", "age": 20, "bitwiseFlag": 5 },
+  { "student_id": 55, "name": "Sam Brown", "age": 25, "bitwiseFlag": 6 }
+]
+
+4.	Create and demonstrate how projection operators ($, Selematch and $slice) would be used in the MondoDB.
+MongoDB's projection operators: $, $elemMatch, and $slice. We'll use the students collection for these examples.
+1.	$ Projection Operator
+Example: Find a student and project the first course that matches a condition
+Sample document:
+{  "student_id": 60,
+  "name": "Alice Johnson",
+  "age": 23,
+  "courses": [
+    { "name": "Math", "grade": "A" },
+    { "name": "Physics", "grade": "B" },
+    { "name": "Chemistry", "grade": "A" }
+  ]
+Query:
+db.students.find(
+  { "student_id": 60, "courses.grade": "A" },
+  { "courses.$": 1, _id: 0 }
+)
+
+Explanation:
+•	{ "student_id": 60, "courses.grade": "A" }: Find the student with student_id 60 and courses with grade "A".
+•	
+•	{ "courses.$": 1, _id: 0 }: Project only the first course that matches the grade "A", and exclude the _id field.
+Example Output:
+[
+  { "courses": [{ "name": "Math", "grade": "A" }] }
+]
+2. $elemMatch Projection Operator
+The $elemMatch projection operator is used to project only the first array element that matches the specified $elemMatch condition.
+Example: Find a student and project the course that matches a specific grade
+Query:
+db.students.find(
+  { "student_id": 60 },
+  { "courses": { $elemMatch: { "grade": "A" } }, _id: 0 }
+)
+Explanation:
+•	{ "student_id": 60 }: Find the student with student_id 60.
+•	{ "courses": { $elemMatch: { "grade": "A" } }, _id: 0 }: Project only the course element that matches the grade "A", and exclude the _id field.
+Example Output:
+[
+  { "courses": { "name": "Math", "grade": "A" } }
+]
+3. $slice Projection Operator
+The $slice projection operator is used to return a subset of array elements. You can specify the number of elements to return, and optionally, the starting position.
+Example1: Find a student and project the first 2 courses
+Query:
+
+db.students.find(
+  { "student_id": 60 },
+  { "courses": { $slice: 2 }, _id: 0 })
+Explanation:
+•	{ "student_id": 60 }: Find the student with student_id 60.
+•	{ "courses": { $slice: 2 }, _id: 0 }: Project only the first 2 elements of the courses array, and exclude the _id field.
+Example Output:
+[   { "courses": [
+    { "name": "Math", "grade": "A" },
+    { "name": "Physics", "grade": "B" }
+  ]}
+]
+Example2: Find a student and project 2 courses starting from the second course
+Query:
+db.students.find(
+  { "student_id": 60 },
+  { "courses": { $slice: [1, 2] }, _id: 0 }
+)
+Explanation:
+•	{ "student_id": 60 }: Find the student with student_id 60.
+•	{ "courses": { $slice: [1, 2] }, _id: 0 }: Project 2 elements of the courses array starting from the second element, and exclude the _id field.
+Example Output:
+[
+  { "courses": [
+    { "name": "Physics", "grade": "B" },
+    { "name": "Chemistry", "grade": "A" }
+  ]}
+]
+
+5) Execute Aggregation operations (Savg, $min,$max, $push, $addToSet etc.). students encourage to execute several queries to demonstrate various aggregation operators)
+Sample data:
+db.students.insertMany([
+  { student_id: 1, name: "Alice Johnson", age: 23, grade: "A", scores: [85, 90, 95] },
+  { student_id: 2, name: "Bob Smith", age: 22, grade: "B", scores: [75, 80, 85] },
+  { student_id: 3, name: "Charlie Brown", age: 24, grade: "A", scores: [90, 95, 100] },
+  { student_id: 4, name: "Diana Prince", age: 21, grade: "C", scores: [65, 70, 75] },
+  { student_id: 5, name: "Eve Adams", age: 23, grade: "B", scores: [80, 85, 90] },
+  { student_id: 6, name: "Frank White", age: 22, grade: "A", scores: [88, 92, 96] },
+])
+Aggregation Framework
+Let's explore various aggregation operators like $avg, $min, $max, $push, and $addToSet.
+1. $avg: Calculate the average age of students
+Query
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      averageAge: { $avg: "$age" }
+    }
+  }
+])
+Explanation:
+•	$group: Groups the documents by the specified _id (null means all documents are in one group).
+•	$avg: Calculates the average age of students.
+Example Output:
+[
+  { "_id": null, "averageAge": 22.5 }
+]
+2. $min and $max: Find the minimum and maximum age of students
+Query
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      minAge: { $min: "$age" },
+      maxAge: { $max: "$age" }
+    }
+  }
+])
+Explanation:
+•	$min: Finds the minimum age of students.
+•	$max: Finds the maximum age of students.
+Example Output:
+[
+  { "_id": null, "minAge": 21, "maxAge": 24 }
+]
+3. $push: Collect all student names into an array
+Query
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      allNames: { $push: "$name" }
+    }
+  }
+])
+Explanation:
+•	$push: Collects all student names into an array.
+Example Output:
+[
+  { "_id": null, "allNames": ["Alice Johnson", "Bob Smith", "Charlie Brown", "Diana Prince", "Eve Adams", "Frank White"] }
+]
+4. $addToSet: Collect unique grades into an array
+Query
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      uniqueGrades: { $addToSet: "$grade" }
+    }
+  }
+])
+Explanation:
+•	$addToSet: Collects unique grades into an array.
+Example Output:
+[
+  { "_id": null, "uniqueGrades": ["A", "B", "C"] }
+]
+5. $sum: Calculate the total number of students
+Query
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      totalStudents: { $sum: 1 }
+    }
+  }
+])
+Explanation:
+•	$sum: Calculates the total number of students by summing 1 for each document.
+Example Output:
+[
+  { "_id": null, "totalStudents": 6 }
+]
+6. $avg with nested fields: Calculate the average score for each student
+Query
+db.students.aggregate([
+  {
+    $project: {
+      name: 1,
+      averageScore: { $avg: "$scores" }
+    }
+  }
+])
+Explanation:
+•	$project: Projects the student name and calculates the average of the scores array for each student.
+Example Output:
+[
+  { "name": "Alice Johnson", "averageScore": 90 },
+  { "name": "Bob Smith", "averageScore": 80 },
+  { "name": "Charlie Brown", "averageScore": 95 },
+  { "name": "Diana Prince", "averageScore": 70 },
+  { "name": "Eve Adams", "averageScore": 85 },
+  { "name": "Frank White", "averageScore": 92 }
+]
+
+
+6) Execute Aggregation Pipeline and its operations (pipeline must contain Smatch, Sgroup, $sort, $project, $skip etc. students encourage to execute several queries to demonstrate various aggregation operators)
+Sample Data
+Ensure the students collection is populated with the following sample data:
+db.students.insertMany([
+  { student_id: 1, name: "Alice Johnson", age: 23, grade: "A", scores: [85, 90, 95] },
+  { student_id: 2, name: "Bob Smith", age: 22, grade: "B", scores: [75, 80, 85] },
+  { student_id: 3, name: "Charlie Brown", age: 24, grade: "A", scores: [90, 95, 100] },
+  { student_id: 4, name: "Diana Prince", age: 21, grade: "C", scores: [65, 70, 75] },
+  { student_id: 5, name: "Eve Adams", age: 23, grade: "B", scores: [80, 85, 90] },
+  { student_id: 6, name: "Frank White", age: 22, grade: "A", scores: [88, 92, 96] },
+])
+Example Pipeline: Calculate the average score for each student with grade "A", sort by average score, and return the top 2 students
+
+
+QUERY:
+db.students.aggregate([
+  {
+    $group: { // Group by grade and count the number of students in each grade
+      _id: "$grade",
+      studentCount: { $sum: 1 }  }  },
+  {
+    $sort: { studentCount: -1 }                      / / Sort by student count in descending order
+  },
+  {  $skip: 1 // Skip the first group
+  },
+  {    $project: {                                                          // Project the grade and student count fields
+      _id: 0,
+      grade: "$_id",
+      studentCount: 1 }  }  ]  )
+Example Output:
+[{ "name": "Charlie Brown", "averageScore": 95 },
+  { "name": "Frank White", "averageScore": 92 }]
+Example Pipeline: Group by grade, count the number of students in each grade, sort by count, skip the first group, and project the results
+db.students.aggregate([
+  {
+    $group: {                       // Group by grade and count the number of students in each grade
+      _id: "$grade",
+      studentCount: { $sum: 1 } }
+  },
+  {  $sort: { studentCount: -1 }               // Sort by student count in descending order
+  },
+  {    $skip: 1                                              // Skip the first group
+  },
+  {    $project: {                                         // Project the grade and student count fields
+      _id: 0,
+      grade: "$_id",
+      studentCount: 1
+    }   } ] ) 
+Example output:
+[
+  { "name": "Charlie Brown", "highestScore": 100 },
+  { "name": "Frank White", "highestScore": 96 },
+  { "name": "Alice Johnson", "highestScore": 95 }
+]
+7 a. Find all listings with listing url, name, address, host picture url in the listings And Reviews
+Sample Document Structure
+Here's an example structure of a document in the listingsAndReviews collection:
+{
+  "listing_id": "10006546",
+  "listing_url": "https://www.example.com/rooms/10006546",
+  "name": "Beautiful Beach House",
+  "address": {
+    "street": "123 Beach St",
+    "suburb": "Santa Monica",
+    "state": "CA",
+    "country": "United States"
+  },
+  "host": {
+    "host_id": "12345678",
+    "host_picture_url":                           "https://www.example.com/host12345678.jpg"
+  },
+  // other fields...
+}
+Query
+To find all listings with the required fields, you can use the following query:
+db.listingsAndReviews.find(
+  {  },
+  {  _id: 0,
+    listing_url: 1,
+    name: 1,
+    "address.street": 1,
+    "address.suburb": 1,
+    "address.state": 1,
+    "address.country": 1,
+    "host.host_picture_url": 1
+  } )
+Example Output:  
+b. Using E-commerce collection write a query to display reviews summary
+Here's an example of a document in the ecommerce collection:
+{
+  "product_id": "1001",
+  "name": "Smartphone",
+  "category": "Electronics",
+  "price": 299.99,
+  "reviews": 
+[ {
+    "reviewer_name": "Alice",
+      "review_date": "2024-01-10",
+      "rating": 5,
+      "comment": "Excellent phone with great battery life!"
+    },
+    {
+      "reviewer_name": "Bob",
+      "review_date": "2024-02-12",
+      "rating": 4,
+      "comment": "Good value for money."
+    } ] }
+Query
+db.ecommerce.aggregate([
+  {
+    $unwind: "$reviews"      // Unwind the reviews array to work with individual review documents
+  },
+  {
+    $group: {
+      _id: "$product_id",
+      productName: { $first: "$name" },
+      averageRating: { $avg: "$reviews.rating" },
+      totalReviews: { $sum: 1 }
+    } },
+  {   $project: {
+      _id: 0,
+      product_id: "$_id",
+      productName: 1,
+      averageRating: 1,
+      totalReviews: 1
+    } }  ] )
+
+
+Example output:
+[ {
+    "product_id": "1001",
+    "productName": "Smartphone",
+    "averageRating": 4.5,
+    "totalReviews": 2
+  } ]
+
+8)a. Demonstrate creation of different types of indexes on collection (unique, sparse, compound and multikey indexes)
+Let's assume we have a collection named products with the following sample data:
+db.products.insertMany([
+  { product_id: 1, name: "Laptop", category: "Electronics", price: 899.99, tags: ["computer", "portable"] },
+  { product_id: 2, name: "Smartphone", category: "Electronics", price: 599.99, tags: ["phone", "portable"] },
+  { product_id: 3, name: "Coffee Maker", category: "Home Appliances", price: 49.99, tags: ["kitchen", "coffee"] },
+  { product_id: 4, name: "Blender", category: "Home Appliances", price: 29.99, tags: ["kitchen", "blender"] }
+])
+Creating Different Types of Indexes
+1. Unique Index
+A unique index ensures that the indexed field does not contain duplicate values
+// Create a unique index on the product_id field
+db.products.createIndex({ product_id: 1 }, { unique: true })
+2. Sparse Index
+// Create a sparse index on the price field
+db.products.createIndex({ price: 1 }, { sparse: true })
+3. Compound Index
+// Create a compound index on the category and price fields
+db.products.createIndex({ category: 1, price: -1 })
+4. Multikey Index
+// Create a multikey index on the tags field
+db.products.createIndex({ tags: 1 })
+4. Multikey Index
+// Create a multikey index on the tags field
+db.products.createIndex({ tags: 1 })
+Verifying Indexes
+// Get the list of indexes on the products collection
+db.products.getIndexes()
+output:
+ 
+8) b. Demonstrate optimization of queries using indexes.
+Sample Data
+Make sure the products collection contains the sample data:
+db.products.insertMany([
+  { product_id: 1, name: "Laptop", category: "Electronics", price: 899.99, tags: ["computer", "portable"] },
+  { product_id: 2, name: "Smartphone", category: "Electronics", price: 599.99, tags: ["phone", "portable"] },
+  { product_id: 3, name: "Coffee Maker", category: "Home Appliances", price: 49.99, tags: ["kitchen", "coffee"] },
+  { product_id: 4, name: "Blender", category: "Home Appliances", price: 29.99, tags: ["kitchen", "blender"] },
+  { product_id: 5, name: "Tablet", category: "Electronics", price: 299.99, tags: ["tablet", "portable"] },
+  // Additional documents to increase collection size for better illustration
+  { product_id: 6, name: "Headphones", category: "Electronics", price: 199.99, tags: ["audio", "portable"] },
+  { product_id: 7, name: "Microwave", category: "Home Appliances", price: 99.99, tags: ["kitchen", "cooking"] },
+  { product_id: 8, name: "Refrigerator", category: "Home Appliances", price: 499.99, tags: ["kitchen", "cooling"] },
+  { product_id: 9, name: "Camera", category: "Electronics", price: 899.99, tags: ["photography", "portable"] },
+  { product_id: 10, name: "Smartwatch", category: "Electronics", price: 199.99, tags: ["wearable", "portable"] }
+])
+Creating Indexes
+// Create indexes
+db.products.createIndex({ category: 1 })
+db.products.createIndex({ price: 1 })
+db.products.createIndex({ tags: 1 })
+db.products.createIndex({ name: "text" })
+Query Performance Comparison
+Query 1: Find products by category
+Without Index:
+// Drop the index if exists
+db.products.dropIndex({ category: 1 })
+
+// Explain the query
+db.products.find({ category: "Electronics" }).explain("executionStats")
+With Index:
+// Create the index again
+db.products.createIndex({ category: 1 })
+// Explain the query
+db.products.find({ category: "Electronics" }).explain("executionStats")
+
+Query 2: Find products within a price range
+Without Index:
+// Drop the index if exists
+db.products.dropIndex({ price: 1 })
+
+// Explain the query
+db.products.find({ price: { $lt: 300 } }).explain("executionStats")
+With Index:
+// Create the index again
+db.products.createIndex({ price: 1 })
+
+// Explain the query
+db.products.find({ price: { $lt: 300 } }).explain("executionStats")
+9 a. Develop a query to demonstrate Text search using catalog data collection for a given word
+Here's an example of a document in the catalogData collection:
+{
+  "_id": ObjectId("60b47193d242f45dd5cfa6a7"),
+  "product_id": 1,
+  "name": "Laptop",
+  "description": "Powerful laptop for gaming and productivity tasks.",
+  "category": "Electronics"
+}
+Text Search Query
+db.catalogData.find({ $text: { $search: "gaming" } })
+Example Output
+[ {
+    "_id": ObjectId("60b47193d242f45dd5cfa6a7"),
+    "product_id": 1,
+    "name": "Laptop",
+    "description": "Powerful laptop for gaming and productivity tasks.",
+    "category": "Electronics"
+  },
+  {
+    "_id": ObjectId("60b47193d242f45dd5cfa6b2"),
+    "product_id": 10,
+    "name": "Gaming Mouse",
+    "description": "High-performance gaming mouse with customizable buttons.",
+    "category": "Accessories"
+  },
+  // Other matching documents...
+]
+b. Develop queries to illustrate excluding documents with certain words and phrases
+Example 1: Exclude Documents with a Specific Word
+db.catalogData.find({ $text: { $search: "outdoor", $not: true } })
+This query will return documents where the description field does not contain the word "outdoor".
+Example 2: Exclude Documents with a Specific Phrase
+db.catalogData.find({ $text: { $search: "\"heavy duty\"", $not: true } })
+This query will return documents where the description field does not contain the phrase "heavy duty".
+Example 3: Exclude Documents with Multiple Words
+db.catalogData.find({ $text: { $search: "waterproof -shockproof -dustproof", $not: true } })
+In this example, the - (minus sign) operator is used to exclude documents containing the words "shockproof" and "dustproof" from the search results.
+10) Develop an aggregation pipeline to illustrate Text search on Catalog data collection.
+QUERY:
+db.catalogData.aggregate( [
+  {
+    $match: {
+      $text: {
+        $search: "laptop" // Specify the search term
+      } }
+  },
+  {    $project: {
+      _id: 0,
+      product_id: 1,
+      name: 1,
+      description: 1,
+      score: { $meta: "textScore" } // Include the text score for each document
+    }  },
+  {
+    $sort: {
+      score: { $meta: "textScore" } // Sort the documents by text score
+    } } )
+
+
+Example Output:
+[  {
+    "product_id": 1,
+    "name": "Powerful Laptop",
+    "description": "This laptop is great for gaming and productivity tasks.",
+    "score": 2.5
+  },
+  {
+    "product_id": 2,
+    "name": "Ultra-thin Laptop",
+    "description": "An ultra-thin laptop ideal for business users.",
+    "score": 1.8
+  }, ]
+
+
